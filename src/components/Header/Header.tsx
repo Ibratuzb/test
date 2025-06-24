@@ -1,36 +1,21 @@
-import React, { useRef } from 'react'
-import TopNav from '../TopNav/TopNav'
-import MainMenu from '../MainMenu/MainMenu'
-import SearchBar from '../SearchBar/SearchBar'
-import useVerticalScrollEvent from '@/hooks/useVerticalScrollEvent'
+import { FC } from 'react';
+import Link from 'next/link';
 
-type Props = {}
-
-const Header = (props: Props) => {
-
-  const stickyRef = useRef<HTMLDivElement>(null);
-
-  useVerticalScrollEvent((evt:any) => {
-    if(evt.currentTarget.scrollY >= 172) {
-      (stickyRef.current as HTMLDivElement).classList.add('navbar_fixed');
-      return;
-    } 
-    if(evt.currentTarget.scrollY <= 42) {
-      (stickyRef.current as HTMLDivElement).classList.remove('navbar_fixed');
-      return;
-    }
-    
-  });
-
-  
+const Header: FC = () => {
   return (
-    <header className="header_area" ref={stickyRef}>
-        <TopNav />
-        <MainMenu />
-        
-        <SearchBar />
-      </header>
-  )
-}
+    <header className="bg-white shadow-md">
+      <div className="container flex justify-between items-center py-4">
+        <Link href="/" className="text-2xl font-bold text-blue-600">
+          Construction Waste
+        </Link>
+        <nav>
+          <Link href="/profile" className="text-blue-600 hover:underline">
+            Lichniy kabinet
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+};
 
-export default Header
+export default Header;

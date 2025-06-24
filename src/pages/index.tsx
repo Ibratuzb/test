@@ -1,30 +1,27 @@
-import Head from 'next/head';
+import { NextPage } from 'next';
 import Header from '@/components/Header/Header';
-import HomeBanner from '@/components/HomeBanner/HomeBanner';
-import About from '@/components/About/About';
-import Services from '@/components/Services/Services';
-import Stats from '@/components/Stats/Stats';
-import Portfolio from '@/components/Portfolio/Portfolio';
-import Testimonials from '@/components/Testimonials/Testimonials';
 import Footer from '@/components/Footer/Footer';
-import Blog from '@/components/Blog/Blog';
+import MainMenu from '@/components/MainMenu/MainMenu';
+import HomeBanner from '@/components/HomeBanner/HomeBanner';
 
-export default function HomePage() {
-  return <>
-  <Head>
-        <title>Sintec Nextjs Starter Template</title>
-        <meta name="description" content="OnePro Nextjs Starter Template is a free template designed for business landing pages, which aligns with the growing trend towards one-page web designs." />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+const Home: NextPage = () => {
+  return (
+    <div className="min-h-screen flex flex-col">
       <Header />
+      <MainMenu />
       <HomeBanner />
-      <About />
-      <Services />
-      <Stats />
-      <Portfolio />
-      <Testimonials />
-      <Blog />
+      <main className="container">
+        <section className="card">
+          <h1 className="text-3xl font-bold mb-4">Qurilish chiqindilarini boshqarish</h1>
+          <p className="text-lg">
+            Biz qurilish chiqindilarini samarali boshqarish va utilizatsiya qilish bo‘yicha xizmatlar taqdim etamiz. Ekologik toza yechimlar va zamonaviy transport vositalari bilan ishlashni taklif qilamiz.
+          </p>
+          <a href="/contacts" className="btn mt-4 inline-block">Biz bilan bog‘laning</a>
+        </section>
+      </main>
       <Footer />
-  </>
-}
+    </div>
+  );
+};
+
+export default Home;
